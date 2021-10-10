@@ -1,0 +1,275 @@
+body {
+    background: url(../images/wallpaper.jpg) no-repeat;
+    background-color: rgb(17, 16, 16);
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently */
+}
+.text1 {
+    margin-left: 10px;
+    }
+.text2 {
+    margin-right: 10px;
+}
+.leftstr, .rightstr {
+    float: left; /* Обтекание справа */
+}
+.rightstr {
+    text-align: right; /* Выравнивание по правому краю */ 
+}
+html, body, .sidebar { max-height: 100%; height: 100%; width: 100%; margin: 0; }
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+.window::-webkit-scrollbar-thumb {
+    background-color: #acacac;
+}
+.window::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background:#ffffff;
+  }
+.window::-webkit-resizer{
+    background:transparent;
+}
+.window0 {
+    height: 100%;
+    max-height: 100%;
+    z-index: -1;
+    background: blue;
+}
+.window {
+    overflow: auto;
+    overflow-x: hidden;
+    position: absolute;
+    min-width: 195px;
+    min-height: 165px;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    color: #fff;
+    background-color: #242323;
+    border: 1px solid #464646;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    resize: both;
+}
+.window p:hover {
+    color: rgb(209, 202, 202);
+}
+.windowheader {
+    padding: 7px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 2px 2px 0px 0px;
+    position: sticky;
+    top: 0;
+}
+.windowblock {
+    padding: 10px;
+    overflow: scroll;
+}
+hr {
+    padding: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: gray;
+}
+img {
+    object-fit: cover;
+}
+.preloader {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.315);
+    transition: 0.3s;
+    text-align: center;
+    margin-top: auto;
+    z-index: 10;
+    color: #fff;
+    backdrop-filter: blur(1.0rem);
+}
+input:active, input:focus,
+button:active, button:focus {
+    outline: none !important;
+}
+button::-moz-focus-inner {
+    border: 0 !important;
+}
+.button {
+    border: 1px solid #464646;
+    border-radius: 1px;
+    background-color: #302f2f;
+    color: #fff;
+    right: 0px;
+    padding: 4px;
+}
+.button:hover {
+    background-color: #444242;
+    border: 1px solid #464646;
+}
+.consoleinput {
+    border: 1px solid #464646;
+    border-radius: 1px;
+    background-color: #302f2f;
+    margin-top: 10px;
+    width: 91%;
+    color: white;
+    padding: 4px;
+}
+.consoleinput::placeholder {
+    color: rgb(107, 107, 107);
+}
+.consoleblock {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #464646;
+    border-radius: 1px;
+    background-color: #1a1919;
+    padding: 4px;
+    min-width: 350px;
+}
+.sidebar {
+    margin: auto;
+    background-color: #0000008c;
+    transition: 0.5s; /*Скорость перехода состояния элемента*/
+    animation: show 2s 1; /* Указываем название анимации, её время и количество повторов*/
+    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+    animation-delay: 1s; /* Задержка перед началом */
+    position: relative;
+    z-index: 10000000;
+    backdrop-filter: blur(1.5rem);
+    transition: 0.5s;
+}
+.startmenu {
+    margin-left: 60px;
+    top: 0;
+    position: absolute;
+    background-color: #161616a9;
+    transition: 0.5s; /*Скорость перехода состояния элемента*/
+    z-index: 10000000;
+    backdrop-filter: blur(1.0rem);
+    transition: 0.5s;
+    padding: 14px 14px 4px 4px;
+    border-radius: 0px 0px 4px 0px;
+    display: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.startmenuuser {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+}
+.startmenuitem {
+    margin-top: 3px;
+    margin-left: 10px;
+    float: right;
+    width: 200px;
+}
+.suk {
+    padding: 10px;
+    background-color: rgba(105, 105, 177, 0.212);
+    border-radius: 2px;
+    max-width: 80px;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+.suk i {
+    font-size: 40px;
+}
+.suk:hover {
+    background-color: rgba(171, 171, 236, 0.212);
+}
+.suk:active {
+    background-color: rgba(122, 122, 189, 0.212);
+}
+.sidebardate {
+    position: absolute;
+    bottom: 10px;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    transition: 0.2s;
+    margin-bottom: 5px;
+}
+.sidebardate:hover {
+    background-color: #4d4b4b93;
+}
+.sidebardate:active {
+    background-color: #36363683;
+}
+.sidebardate1 {
+    width: 100%;
+    border-top: 2px solid #464646;
+    position: absolute;
+    bottom: 0px;
+    font-size: 8px;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    transition: 0.2s;
+    height: 10px;
+}
+.sidebardate1:hover {
+    background-color: #4d4b4b93;
+}
+.sidebardate1:active {
+    background-color: #36363683;
+}
+.sidebarapp {
+    width: 100%;
+    padding: 4px;
+    position: absolute;
+    font-size: 20px;
+    color:  white;
+    text-align: center;
+    border-left: 2px solid rgb(98, 98, 247);
+    transition: 0.2s;
+}
+.sidebarapp:hover {
+    background-color: #4d4b4b93;
+}
+.sidebarapp:active {
+    background-color: #36363683;
+}
+.sidebarwwapp {
+    width: 100%;
+    padding: 4px;
+    position: absolute;
+    font-size: 20px;
+    color:  white;
+    text-align: center;
+    transition: 0.2s;
+}
+.sidebarwwapp:hover {
+    background-color: #4d4b4b93;
+}
+.sidebarwwapp:active {
+    background-color: #36363683;
+}
+@keyframes show{
+    0%{
+    opacity:0;
+    }
+    100% {
+    opacity:1;
+    }
+    }
