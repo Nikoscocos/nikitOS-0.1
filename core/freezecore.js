@@ -660,3 +660,18 @@ function aboutApp() {
     appcontents = '<h1>nikitOS 0.1</h1><h4><hr>Designed by <b>Nikoscocos Ltd.</b><br>All rights reversed.</h4>';
     openWindow('About nikitOS', appcontents, icon, '350px', '200px')
 }
+function minecraftApp() {
+    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
+    appcontents = '<iframe style="height: 500px; width: 900px" src="https://classic.minecraft.net/" width="100%" height="100%"></iframe>';
+    openWindow('Minecraft', appcontents, icon)
+}
+function vscodeApp() {
+    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
+    appcontents = '<iframe style="height: 500px; width: 900px" src="https://vscode.dev/" width="100%" height="100%"></iframe>';
+    openWindow('Visual Studio Code', appcontents, icon)
+}
+function sgoApp() {
+    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
+    appcontents = '<iframe style="height: 500px; width: 900px" src="https://sgo.cit73.ru/" width="100%" height="100%"></iframe>';
+    openWindow('NetCity', appcontents, icon)
+}
