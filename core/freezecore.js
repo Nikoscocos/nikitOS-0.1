@@ -15,7 +15,8 @@ const brapplist = []
 const apps = ['Clock//<i class="fa fa-angle-double-right" aria-hidden="true"></i>//clockApp()', 
               'Robots//<i class="fa fa-user-times" aria-hidden="true"></i>//randhumanApp()',
               'Console//<i class="fa fa-terminal" aria-hidden="true"></i>//consoleApp()',
-              'Logger//<i class="fa fa-times-circle" aria-hidden="true"></i>//loggerApp()']
+              'Logger//<i class="fa fa-times-circle" aria-hidden="true"></i>//loggerApp()',
+              'About//<i class="fa fa-cubes" aria-hidden="true"></i>//aboutApp()']
 
 function openWindow(wtitie, content, icon, maxwidth, maxheight) {
     openedwindows++;
@@ -653,4 +654,9 @@ function addlog(logtext) {
         document.getElementById('logadd').lastChild.scrollIntoView(false)
     }
     catch(e) {}
+}
+function aboutApp() {
+    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
+    appcontents = '<h1>nikitOS 0.1</h1><h4><hr>Designed by <b>Nikoscocos Ltd.</b><br>All rights reversed.</h4>';
+    openWindow('About nikitOS', appcontents, icon, '350px', '200px')
 }
