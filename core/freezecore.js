@@ -16,6 +16,7 @@ const apps = ['Clock//<i class="fa fa-angle-double-right" aria-hidden="true"></i
               'Robots//<i class="fa fa-user-times" aria-hidden="true"></i>//randhumanApp()',
               'Console//<i class="fa fa-terminal" aria-hidden="true"></i>//consoleApp()',
               'Logger//<i class="fa fa-times-circle" aria-hidden="true"></i>//loggerApp()',
+              'About//<i class="fa fa-cubes" aria-hidden="true"></i>//aboutApp()',
               'VSCode//<img src="icons/vscode.png" width="40" height="40">//vscodeApp()',
               'Mine//<img src="icons/minecraft.ico" width="40" height="40">//minecraftApp()',
               'Conte//<img src="icons/connection.png" width="40" height="40">//connectionApp()',
