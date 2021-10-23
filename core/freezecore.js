@@ -20,7 +20,8 @@ const apps = ['Clock//<i class="fa fa-angle-double-right" aria-hidden="true"></i
               'VSCode//<img src="icons/vscode.png" width="40" height="40">//vscodeApp()',
               'Mine//<img src="icons/minecraft.ico" width="40" height="40">//minecraftApp()',
               'Conte//<img src="icons/connection.png" width="40" height="40">//connectionApp()',
-              'Music//<img src="icons/music.png" width="40" height="40">//musicApp()']
+              'Music//<img src="icons/music.png" width="40" height="40">//musicApp()',
+              'PyShell//<img src="icons/pyshell.png" width="40" height="40">//pyshellApp()']
 
 function openWindow(wtitie, content, icon, maxwidth, maxheight) {
     openedwindows++;
@@ -726,4 +727,9 @@ function connectionApp() {
     icon = '<img src="icons/connection.png" width="32" height="32">'
     appcontents = '<iframe src="https://js13kgames.com/games/connection/index.html" width="100%" height="100%"></iframe>';
     openCustomWindow('Conte', appcontents, icon)
+}
+function pyshellApp() {
+    icon = '<img src="icons/pyshell.png" width="32" height="32">'
+    appcontents = '<iframe src="https://console.python.org/python-dot-org-console/console_frame/" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>';
+    openCustomWindow('PyShell', appcontents, icon)
 }
