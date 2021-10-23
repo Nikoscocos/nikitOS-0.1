@@ -704,7 +704,7 @@ function addlog(logtext) {
 }
 function aboutApp() {
     icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
-    appcontents = '<h1>nikitOS 0.2 Alpha</h1><h4><hr>For questions: @nikit0s4 (VK)</b><br>It is written on JavaScript.<br>Worked on FreezeCore GUI</h4><h5><hr>Designed by <b>Nikoscocos Ltd.</b><br>All rights reversed.</h5>';
+    appcontents = '<h1>nikitOS 0.2</h1><h4><hr>For questions: @nikit0s4 (VK)</b><br>It is written on JavaScript.<br>Worked on FreezeCore GUI</h4><h5><hr>Designed by <b>Nikoscocos Ltd.</b><br>All rights reversed.</h5>';
     openWindow('About nikitOS', appcontents, icon, '350px', 'auto')
 }
 function minecraftApp() {
