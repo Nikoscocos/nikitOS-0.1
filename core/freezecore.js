@@ -16,7 +16,10 @@ const apps = ['Clock//<i class="fa fa-angle-double-right" aria-hidden="true"></i
               'Robots//<i class="fa fa-user-times" aria-hidden="true"></i>//randhumanApp()',
               'Console//<i class="fa fa-terminal" aria-hidden="true"></i>//consoleApp()',
               'Logger//<i class="fa fa-times-circle" aria-hidden="true"></i>//loggerApp()',
-              'About//<i class="fa fa-cubes" aria-hidden="true"></i>//aboutApp()']
+              'VSCode//<img src="icons/vscode.png" width="40" height="40">//vscodeApp()',
+              'Mine//<img src="icons/minecraft.ico" width="40" height="40">//minecraftApp()',
+              'Conte//<img src="icons/connection.png" width="40" height="40">//connectionApp()',
+              'Music//<img src="icons/music.png" width="40" height="40">//musicApp()']
 
 function openWindow(wtitie, content, icon, maxwidth, maxheight) {
     openedwindows++;
@@ -49,6 +52,56 @@ function openWindow(wtitie, content, icon, maxwidth, maxheight) {
     }
     document.getElementById(windowid).style.top = "20px";
     document.getElementById(windowid).style.left = "90px";
+    windows.push(windowid);
+    windowsheaders.push(windowhid);
+    windowstitles.push(windowtid);
+    normalwindows.push(windowid);
+    if (activestart == 1) {
+        startMenu()
+    }
+    else {}
+    if (icon == undefined) {
+        icon = '<i class="fa fa-window-maximize" aria-hidden="true"></i>'
+    }
+    else {}
+    startWindows()
+    addSidebarWindow(windowid, icon)
+    markWindow(windowid)
+    execute = "closeWindow('" + windowid + "')"
+    addlog('Opened window: ' + windowid)
+}
+function openCustomWindow(wtitie, content, icon, maxwidth, maxheight) {
+    openedwindows++;
+    cycleswindows++;
+    windowid = "window" + String(openedwindows);
+    windowtid = wtitie + ' (' + windowid + ')'
+    windowhid = "headerwindow" + String(openedwindows);
+    suksuk = " ondblclick='maximizeWindow(" + '"' + windowid + '"' + ")'"
+    closewin = " onclick='closeWindow(" + '"' + windowid + '"' + ")'"
+    maxwin = " onclick='maximizeWindow(" + '"' + windowid + '"' + ")'"
+    minwin = " onclick='minimizeWindow(" + '"' + windowid + '"' + ")'"
+    windowidclc = "'" + windowid + "'"
+    elementto = '<div class="mywindow" id="' + windowid + '" onmousedown="markWindow(' + windowidclc + ')">' + 
+                '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader"><b>' + wtitie + '</b><p ' + closewin + ' style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p ' + maxwin + ' style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p ' + minwin + ' style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="onwindowcontent">' 
+                + content + '</div></div>' + '</div>';
+    let div = document.createElement("div");
+    div.innerHTML = elementto;
+    document.body.append(div);
+    if (maxwidth == undefined) {
+        document.getElementById(windowid).style.maxWidth = "100%";
+    }
+    else {
+        document.getElementById(windowid).style.maxWidth = maxwidth;
+    }
+    if (maxheight == undefined) {
+        document.getElementById(windowid).style.maxHeight = "100%";
+    }
+    else {
+        document.getElementById(windowid).style.maxHeight = maxheight;
+    }
+    document.getElementById(windowid).style.top = "20px";
+    document.getElementById(windowid).style.left = "90px";
+    document.getElementById(windowid).style.height = "501px";
     windows.push(windowid);
     windowsheaders.push(windowhid);
     windowstitles.push(windowtid);
@@ -253,6 +306,8 @@ function maximizeWindow(windowid) {
                         document.getElementById(windowid).style.left = '60px';
                         document.getElementById(windowid).style.height = '100%';
                         document.getElementById(windowid).style.width = 'calc(100% - 60px)';
+                        document.getElementById(windowid).style.borderRadius = '0px';
+                        document.getElementById('header'+windowid).style.borderRadius = '0px';
                         addlog('Maximized window: ' + windowid)
                         windowloc = windowid + "[QQWWDDFFVVCCSS::LLKKJJHH]" + windowx + 
                         "[QQWWDDFFVVCCSS::LLKKJJHH]" + windowy + "[QQWWDDFFVVCCSS::LLKKJJHH]"
@@ -288,6 +343,8 @@ function maximizeWindow(windowid) {
                         document.getElementById(windowid).style.left = windowleft;
                         document.getElementById(windowid).style.width = windoww;
                         document.getElementById(windowid).style.height = windowh;
+                        document.getElementById(windowid).style.borderRadius = '10px';
+                        document.getElementById('header'+windowid).style.borderRadius = '10px 10px 0px 0px';
                         normalwindows.push(windowid);
                     }
                 }
@@ -425,6 +482,8 @@ function dragWindow(elmnt) {
                                     document.getElementById(windowid).style.left = e.clientX + "px";
                                     document.getElementById(windowid).style.width = windoww;
                                     document.getElementById(windowid).style.height = windowh;
+                                    document.getElementById(windowid).style.borderRadius = '10px';
+                                    document.getElementById('header'+windowid).style.borderRadius = '10px 10px 0px 0px';
                                     normalwindows.push(windowid);
                                 }
                                 else {}
@@ -472,13 +531,6 @@ function markWindow(windowid) {
         try {
             document.getElementById(windows[i]).style.boxShadow = '0 0 0px rgba(0,0,0,0.5)';
             removeActiveSidebarWindow(windows[i])
-            addlog('Marked window: ' + windowid)
-        }
-        catch(e) {}
-    }
-    for (let i = 0; i < windowsheaders.length; i += 1) {
-        try {
-            document.getElementById(windowsheaders[i]).style.backgroundColor = '#302f2f';
         }
         catch(e) {}
     }
@@ -490,7 +542,7 @@ function markWindow(windowid) {
     cycleswindows++;
     document.getElementById(windowid).style.zIndex = cycleswindows;
     headerid = 'header' + windowid
-    document.getElementById(headerid).style.backgroundColor = '#000000';
+    document.getElementById(headerid).style.color = 'black';
     activewindow = windowid
     activeSidebarWindow(windowid)
 }
@@ -499,12 +551,6 @@ function reMarkWindow(windowid) {
         try {
             document.getElementById(windows[i]).style.boxShadow = '0 0 0px rgba(0,0,0,0.5)';
             removeActiveSidebarWindow(windows[i])
-        }
-        catch(e) {}
-    }
-    for (let i = 0; i < windowsheaders.length; i += 1) {
-        try {
-            document.getElementById(windowsheaders[i]).style.backgroundColor = '#302f2f';
         }
         catch(e) {}
     }
@@ -657,21 +703,26 @@ function addlog(logtext) {
 }
 function aboutApp() {
     icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
-    appcontents = '<h1>nikitOS 0.1</h1><h4><hr>Designed by <b>Nikoscocos Ltd.</b><br>All rights reversed.</h4>';
-    openWindow('About nikitOS', appcontents, icon, '350px', '200px')
+    appcontents = '<h1>nikitOS 0.2 Alpha</h1><h4><hr>For questions: @nikit0s4 (VK)</b><br>It is written on JavaScript.<br>Worked on FreezeCore GUI</h4><h5><hr>Designed by <b>Nikoscocos Ltd.</b><br>All rights reversed.</h5>';
+    openWindow('About nikitOS', appcontents, icon, '350px', 'auto')
 }
 function minecraftApp() {
-    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
-    appcontents = '<iframe style="height: 500px; width: 900px" src="https://classic.minecraft.net/" width="100%" height="100%"></iframe>';
-    openWindow('Minecraft', appcontents, icon)
+    icon = '<img src="icons/minecraft.ico" width="32" height="32">'
+    appcontents = '<iframe src="https://classic.minecraft.net/" width="100%" height="100%"></iframe>';
+    openCustomWindow('Minecraft', appcontents, icon)
 }
 function vscodeApp() {
-    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
-    appcontents = '<iframe style="height: 500px; width: 900px" src="https://vscode.dev/" width="100%" height="100%"></iframe>';
-    openWindow('Visual Studio Code', appcontents, icon)
+    icon = '<img src="icons/vscode.png" width="32" height="32">'
+    appcontents = '<iframe src="https://vscode.dev/"></iframe>';
+    openCustomWindow('Visual Studio Code', appcontents, icon)
 }
-function sgoApp() {
-    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
-    appcontents = '<iframe style="height: 500px; width: 900px" src="https://sgo.cit73.ru/" width="100%" height="100%"></iframe>';
-    openWindow('NetCity', appcontents, icon)
+function musicApp() {
+    icon = '<img src="icons/music.png" width="32" height="32">'
+    appcontents = '<iframe src="https://europaplus.ru/" width="100%" height="100%"></iframe>';
+    openCustomWindow('Music', appcontents, icon)
+}
+function connectionApp() {
+    icon = '<img src="icons/connection.png" width="32" height="32">'
+    appcontents = '<iframe src="https://js13kgames.com/games/connection/index.html" width="100%" height="100%"></iframe>';
+    openCustomWindow('Conte', appcontents, icon)
 }
