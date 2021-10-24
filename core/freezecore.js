@@ -89,21 +89,19 @@ function openCustomWindow(wtitie, content, icon, maxwidth, maxheight) {
     let div = document.createElement("div");
     div.innerHTML = elementto;
     document.body.append(div);
-    if (maxwidth == undefined) {
-        document.getElementById(windowid).style.maxWidth = "100%";
-    }
+    if (maxwidth == undefined) {}
     else {
-        document.getElementById(windowid).style.maxWidth = maxwidth;
+        document.getElementById(windowid).style.minWidth = maxwidth;
     }
     if (maxheight == undefined) {
-        document.getElementById(windowid).style.maxHeight = "100%";
+        document.getElementById(windowid).style.height = '502px';
     }
     else {
-        document.getElementById(windowid).style.maxHeight = maxheight;
+        document.getElementById(windowid).style.height = maxheight;
+        document.getElementById(windowid).style.minHeight = maxheight;
     }
     document.getElementById(windowid).style.top = "20px";
     document.getElementById(windowid).style.left = "90px";
-    document.getElementById(windowid).style.height = "501px";
     windows.push(windowid);
     windowsheaders.push(windowhid);
     windowstitles.push(windowtid);
@@ -446,7 +444,7 @@ function minimizeDefWindow(windowid) {
 function dragWindow(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (document.getElementById("header" + elmnt.id)) {
-      document.ontouchstart = function() {
+      document.getElementById("header" + elmnt.id).ontouchstart = function() {
         document.getElementById("header" + elmnt.id).ontouchmove = dragMouseDown;
       }
       document.getElementById("header" + elmnt.id).onmousedown = dragMouseDown;
@@ -535,6 +533,8 @@ function dragWindow(elmnt) {
     function closeDragElement() {
       document.onmouseup = null;
       document.onmousemove = null;
+      document.ontouchmove = null;
+      document.ontouchstart = null;
     }
 }
 function startWindows() {
@@ -748,5 +748,20 @@ function connectionApp() {
 function pyshellApp() {
     icon = '<img src="icons/pyshell.png" width="32" height="32">'
     appcontents = '<iframe src="https://console.python.org/python-dot-org-console/console_frame/" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>';
-    openCustomWindow('PyShell', appcontents, icon)
+    openCustomWindow('PyShell', appcontents, icon, '498px', '320px')
+}
+function rungameApp() {
+    icon = '<img src="icons/terraria.jpg" width="32" height="32">'
+    appcontents = '<iframe src="https://g.igroutka.ru/games/6/subway_surfers_amsterdam/e8xyldood1thn8uju6l6ysrryotjrnuz/"></iframe>';
+    openCustomWindow('Subway Surfers', appcontents, icon)
+}
+function fnaf3App() {
+    icon = '<img src="icons/terraria.jpg" width="32" height="32">'
+    appcontents = '<iframe width="calc(100% + 400px) id="iframe-in-game" class="direct-field" src="https://www.gameflare.com/embed/five-nights-at-freddys/" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" data-iframe-src="https://www.gameflare.com/embed/five-nights-at-freddys/" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+    openCustomWindow('Subway Surfers', appcontents, icon)
+}
+function photoshopApp(){
+    icon='<img src="icons/photo.jpg" width="32" height="32">'
+    appcontents= '<iframe src="https://photopea.com/?p={%22environment%22:{%22fcolor%22:%220xFFFFFF%22,%22bcolor%22:%220x000000%22,%22theme%22:2,%22lang%22:%22ru%22,%22showbranding%22:false,%22showmenus%22:[[0,1,2,5,6,7],1,1,1,1,1,1,1,1]}}"></iframe>';
+    openCustomWindow('Photoshop',appcontents,icon)
 }
