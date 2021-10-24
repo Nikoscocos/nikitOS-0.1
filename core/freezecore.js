@@ -444,9 +444,6 @@ function minimizeDefWindow(windowid) {
 function dragWindow(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (document.getElementById("header" + elmnt.id)) {
-      document.getElementById("header" + elmnt.id).ontouchstart = function() {
-        document.getElementById("header" + elmnt.id).ontouchmove = dragMouseDown;
-      }
       document.getElementById("header" + elmnt.id).onmousedown = dragMouseDown;
     } else {alert(elmnt)}
   
@@ -454,12 +451,6 @@ function dragWindow(elmnt) {
       e = e || window.event;
       pos3 = e.clientX;
       pos4 = e.clientY;
-      if (pos3==undefined) {
-        pos3 = e.touches[0].clientX;
-      }
-      if (pos4==undefined) {
-        pos4 = e.touches[0].clientY;
-      }
       document.onmouseup = closeDragElement;
       document.onmousemove = elementDrag;
     }
@@ -470,14 +461,6 @@ function dragWindow(elmnt) {
       pos2 = pos4 - e.clientY;
       pos3 = e.clientX;
       pos4 = e.clientY;
-      if (pos3==undefined) {
-        pos3 = e.touches[0].clientX;
-        pos1 = pos3 - e.touches[0].clientX;
-      }
-      if (pos4==undefined) {
-        pos4 = e.touches[0].clientY;
-        pos2 = pos4 - e.touches[0].clientY;
-      }
       windowid = elmnt.id
       if (document.getElementById(windowid).style.width == "calc(100% - 60px)") {
         if (document.getElementById(windowid).style.height == "100%") {
@@ -533,8 +516,6 @@ function dragWindow(elmnt) {
     function closeDragElement() {
       document.onmouseup = null;
       document.onmousemove = null;
-      document.ontouchmove = null;
-      document.ontouchstart = null;
     }
 }
 function startWindows() {
