@@ -89,17 +89,7 @@ function openCustomWindow(wtitie, content, icon, maxwidth, maxheight) {
     let div = document.createElement("div");
     div.innerHTML = elementto;
     document.body.append(div);
-    if (maxwidth == undefined) {}
-    else {
-        document.getElementById(windowid).style.minWidth = maxwidth;
-    }
-    if (maxheight == undefined) {
-        document.getElementById(windowid).style.height = '502px';
-    }
-    else {
-        document.getElementById(windowid).style.height = maxheight;
-        document.getElementById(windowid).style.minHeight = maxheight;
-    }
+    document.getElementById(windowid).style.height = '320px';
     document.getElementById(windowid).style.top = "20px";
     document.getElementById(windowid).style.left = "90px";
     windows.push(windowid);
