@@ -35,7 +35,7 @@ function openWindow(wtitie, content, icon, maxwidth, maxheight) {
     minwin = " onclick='minimizeWindow(" + '"' + windowid + '"' + ")'"
     windowidclc = "'" + windowid + "'"
     elementto = '<div class="window" id="' + windowid + '" onmousedown="markWindow(' + windowidclc + ')">' + 
-                '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader">' + icon + ' <b>' + wtitie + '</b><p ' + closewin + ' style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p ' + maxwin + ' style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p ' + minwin + ' style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="windowblock">' 
+                '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader">' + icon.replace('32', '19') + ' <b>' + wtitie + '</b><p ' + closewin + ' style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p ' + maxwin + ' style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p ' + minwin + ' style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="windowblock">' 
                 + content + '</div>' + '</div>';
     let div = document.createElement("div");
     div.innerHTML = elementto;
@@ -84,7 +84,7 @@ function openCustomWindow(wtitie, content, icon, maxwidth, maxheight) {
     minwin = " onclick='minimizeWindow(" + '"' + windowid + '"' + ")'"
     windowidclc = "'" + windowid + "'"
     elementto = '<div class="mywindow" id="' + windowid + '" onmousedown="markWindow(' + windowidclc + ')">' + 
-                '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader">' + icon + '<b>' + wtitie + '</b><p ' + closewin + ' style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p ' + maxwin + ' style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p ' + minwin + ' style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="onwindowcontent">' 
+                '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader">' + icon.replace('32', '19') + '<b>' + wtitie + '</b><p ' + closewin + ' style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p ' + maxwin + ' style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p ' + minwin + ' style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="onwindowcontent">' 
                 + content + '</div></div>' + '</div>';
     let div = document.createElement("div");
     div.innerHTML = elementto;
@@ -109,32 +109,6 @@ function openCustomWindow(wtitie, content, icon, maxwidth, maxheight) {
     markWindow(windowid)
     execute = "closeWindow('" + windowid + "')"
     addlog('Opened window: ' + windowid)
-}
-function openAppWindow(wtitie, content, maxwidth, maxheight) {
-    openedwindows++;
-    cycleswindows++;
-    windowid = "window" + String(openedwindows);
-    windowtid = wtitie + ' (' + windowid + ')'
-    windowhid = "headerwindow" + String(openedwindows);
-    suksuk = " ondblclick='maximizeWindow(" + '"' + windowid + '"' + ")'"
-    windowidclc = "'" + windowid + "'"
-    elementto = '<div class="window" id="' + windowid + '" onmousedown="markWindow(' + windowidclc + ')">' + 
-                '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader"><b>' + wtitie + '</b><p style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="windowblock">' 
-                + content + '</div>' + '</div>';
-    let div = document.createElement("div");
-    div.innerHTML = elementto;
-    document.body.append(div);
-    document.getElementById(windowid).style.top = "20px";
-    document.getElementById(windowid).style.left = "90px";
-    document.getElementById(windowid).style.maxWidth = maxwidth;
-    document.getElementById(windowid).style.maxHeight = maxheight;
-    windows.push(windowid);
-    windowsheaders.push(windowhid);
-    windowstitles.push(windowtid);
-    normalwindows.push(windowid);
-    startWindows()
-    markWindow(windowid)
-    execute = "closeWindow('" + windowid + "')"
 }
 function openQuestWindow(title, content, button) {
     openWindow(title, '<h4>'+ content + '</h4><hr><button onclick="' + execute +  '" class="button">' + button + '</button>')
