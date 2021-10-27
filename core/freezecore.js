@@ -34,7 +34,7 @@ function openWindow(wtitie, content, icon, maxwidth, maxheight) {
     maxwin = " onclick='maximizeWindow(" + '"' + windowid + '"' + ")'"
     minwin = " onclick='minimizeWindow(" + '"' + windowid + '"' + ")'"
     windowidclc = "'" + windowid + "'"
-    titleicon = icon.replace(/32/g, '19')
+    titleicon = icon.replace(/32/g, '17')
     elementto = '<div class="window" id="' + windowid + '" onmousedown="markWindow(' + windowidclc + ')">' + 
                 '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader">' + titleicon + '&nbsp;<b>' + wtitie + '</b><p ' + closewin + ' style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p ' + maxwin + ' style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p ' + minwin + ' style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="windowblock">' 
                 + content + '</div>' + '</div>';
@@ -84,7 +84,7 @@ function openCustomWindow(wtitie, content, icon, maxwidth, maxheight) {
     maxwin = " onclick='maximizeWindow(" + '"' + windowid + '"' + ")'"
     minwin = " onclick='minimizeWindow(" + '"' + windowid + '"' + ")'"
     windowidclc = "'" + windowid + "'"
-    titleicon = icon.replace(/32/g, '19')
+    titleicon = icon.replace(/32/g, '17')
     elementto = '<div class="mywindow" id="' + windowid + '" onmousedown="markWindow(' + windowidclc + ')">' + 
                 '<div id="' + windowhid + '" ' + suksuk + ' class="windowheader">' + titleicon + '&nbsp;<b>' + wtitie + '</b><p ' + closewin + ' style="margin: auto; margin-right: 7px; margin-top: -20px; width: 10px; text-align: right;"> <i class="fa fa-window-close" aria-hidden="true"></i></p><p ' + maxwin + ' style="margin: auto; margin-right: 25px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-maximize" aria-hidden="true"></i></p><p ' + minwin + ' style="margin: auto; margin-right: 43px; margin-top: -21px; width: 10px; text-align: right;"> <i class="fa fa-window-minimize" aria-hidden="true"></i></p></div><div class="onwindowcontent">' 
                 + content + '</div></div>' + '</div>';
