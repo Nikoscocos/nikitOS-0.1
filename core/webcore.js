@@ -32,7 +32,7 @@ function startNormal(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
-                if ('fa fa' in appicon) {
+                if (appicon.startsWith('fa')) {
                     appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
                 }
                 else {
@@ -57,7 +57,7 @@ function startCustom(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
-                if ('fa fa' in appicon) {
+                if (appicon.startsWith('fa')) {
                     appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
                 }
                 else {
