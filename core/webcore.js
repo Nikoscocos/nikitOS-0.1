@@ -63,7 +63,7 @@ function startCustom(appid, apptitle, appicon) {
                 else {
                     appicon = '<img src="' + appicon + '" width="40" height="40">'
                 }
-                openWindow(apptitle, http.responseText, appicon)
+                openCustomWindow(apptitle, http.responseText, appicon)
             }
         }
         http.send(null);
