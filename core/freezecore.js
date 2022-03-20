@@ -558,7 +558,7 @@ function preloader() {
     let div = document.createElement('div');
     div.setAttribute("id", "preloader");
     div.className = "preloader";
-    div.innerHTML = '<br><br><br><br><br><br><br><br><br><br><br><img style="display: none;" class="suk" onload="stopPreloader()" src="images/wallpaper.jpg" width="100" height="100" alt=""><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i> <h2><b>nikitOS</b></h1>';
+    div.innerHTML = '<br><br><br><br><br><br><br><br><br><br><br><img style="display: none;" class="suk" onload="stopPreloader()" src="https://raw.githubusercontent.com/Nikoscocos/nikitOS/main/images/wallpaper.jpg" width="100" height="100" alt=""><i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i> <h2><b>nikitOS</b></h1>';
     document.body.append(div);
 }
 
