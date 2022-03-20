@@ -32,7 +32,7 @@ function start(appid) {
         {
             if(http.readyState == 4)
             {
-                openWindow('App', http.responseText, 'app')
+                openCustomWindow('App', http.responseText, 'app')
             }
         }
         http.send(null);
@@ -202,46 +202,11 @@ function startMenu() {
     var startcontent = ''
     target = document.getElementById('startmenu');
     if (activestart == 1) {
-        for (let i = 0; i < applist.length; i += 1) {
-            try {
-                document.getElementById(applist[i]).remove()
-            }
-            catch(e) {}
-        }
-        for (let i = 0; i < brapplist.length; i += 1) {
-            try {
-                document.getElementById(brapplist[i]).remove()
-            }
-            catch(e) {}
-        }
         addlog('Closed start menu')
         activestart = 0
         document.getElementById('startmenu').style.display = "none";
     }
     else {
-        var countapps = 0
-        var coreapp = 0
-        for (let i = 0; i < apps.length; i += 1) {
-            try {
-                app = apps[i]
-                countapps++;
-                appid = "app" + String(countapps)
-                brid = "br" + String(countapps)
-                appname = app.split('//')[0]
-                appicon = app.split('//')[1]
-                appstart = app.split('//')[2]
-                appcontent = '<div onclick="' + appstart +'" class="suk" id="' + appid + '">' + appicon + '</i>' + 
-                             appname + '</div>'
-                if (countapps == 3) {
-                    countapps = 0
-                    appcontent += '<br id="' + brid + '">'
-                }
-                applist.push(appid)
-                brapplist.push(brid)
-                startcontent += appcontent
-            }
-            catch(e) {}
-        }
         document.getElementById('startmenu').style.display = "block";
         activestart = 1
         appscount = countapps
