@@ -242,7 +242,6 @@ function startMenu() {
     else {
         document.getElementById('startmenu').style.display = "block";
         activestart = 1
-        appscount = countapps
         target.innerHTML += startcontent
         reMarkWindow(1)
         addlog('Opened start menu')
