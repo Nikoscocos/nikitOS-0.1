@@ -23,7 +23,7 @@ const apps = ['Clock//<i class="fa fa-angle-double-right" aria-hidden="true"></i
               'Music//<img src="icons/music.png" width="40" height="40">//musicApp()',
               'PyShell//<img src="icons/pyshell.png" width="40" height="40">//pyshellApp()']
 
-function start(appid) {
+function startNormal(appid, apptitle, appicon) {
     var http = createRequestObject();
     if( http )
     {
@@ -32,7 +32,26 @@ function start(appid) {
         {
             if(http.readyState == 4)
             {
-                openCustomWindow('App', http.responseText, 'app')
+                openWindow(apptitle, http.responseText, appicon)
+            }
+        }
+        http.send(null);
+    }
+    else
+    {
+        document.location = link;
+    }
+}
+function startCustom(appid, apptitle, appicon) {
+    var http = createRequestObject();
+    if( http )
+    {
+        http.open('get', '/app/' + appid);
+        http.onreadystatechange = function ()
+        {
+            if(http.readyState == 4)
+            {
+                openWindow(apptitle, http.responseText, appicon)
             }
         }
         http.send(null);
