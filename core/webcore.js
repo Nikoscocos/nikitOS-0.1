@@ -32,6 +32,12 @@ function startNormal(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
+                if ('fa fa' in appicon) {
+                    appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
+                }
+                else {
+                    appicon = '<img src="' + appicon + '" width="40" height="40">'
+                }
                 openWindow(apptitle, http.responseText, appicon)
             }
         }
@@ -51,6 +57,12 @@ function startCustom(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
+                if ('fa fa' in appicon) {
+                    appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
+                }
+                else {
+                    appicon = '<img src="' + appicon + '" width="40" height="40">'
+                }
                 openWindow(apptitle, http.responseText, appicon)
             }
         }
