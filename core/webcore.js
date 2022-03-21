@@ -12,16 +12,6 @@ const minimizedwindows = []
 const windowslocations = []
 const applist = []
 const brapplist = []
-const apps = ['Clock//<i class="fa fa-angle-double-right" aria-hidden="true"></i>//clockApp()', 
-              'Robots//<i class="fa fa-user-times" aria-hidden="true"></i>//randhumanApp()',
-              'Console//<i class="fa fa-terminal" aria-hidden="true"></i>//consoleApp()',
-              'Logger//<i class="fa fa-times-circle" aria-hidden="true"></i>//loggerApp()',
-              'About//<i class="fa fa-cubes" aria-hidden="true"></i>//aboutApp()',
-              'VSCode//<img src="icons/vscode.png" width="40" height="40">//vscodeApp()',
-              'Mine//<img src="icons/minecraft.ico" width="40" height="40">//minecraftApp()',
-              'Conte//<img src="icons/connection.png" width="40" height="40">//connectionApp()',
-              'Music//<img src="icons/music.png" width="40" height="40">//musicApp()',
-              'PyShell//<img src="icons/pyshell.png" width="40" height="40">//pyshellApp()']
 
 function startNormal(appid, apptitle, appicon) {
     var http = createRequestObject();
@@ -32,6 +22,9 @@ function startNormal(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
+                if (activestart == 1) {
+                    startMenu()
+                }
                 if (appicon.startsWith('fa')) {
                     appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
                 }
@@ -57,6 +50,9 @@ function startCustom(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
+                if (activestart == 1) {
+                    startMenu()
+                }
                 if (appicon.startsWith('fa')) {
                     appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
                 }
@@ -614,149 +610,3 @@ function reload() {
     preloader()
 }
 window.onload = preloader()
-
-/* Apps */
-function zero_first_format(value)
-    {
-        if (value < 10)
-        {
-            value='0'+value;
-        }
-        return value;
-    }
-
-    /* функция получения текущей даты и времени */
-    function sidebardater()
-    {
-        var current_datetime = new Date();
-        var day = zero_first_format(current_datetime.getDate());
-        var month = zero_first_format(current_datetime.getMonth()+1);
-        var year = current_datetime.getFullYear();
-        var hours = zero_first_format(current_datetime.getHours());
-        var minutes = zero_first_format(current_datetime.getMinutes());
-        var seconds = zero_first_format(current_datetime.getSeconds());
-
-        return hours+":"+minutes+"<br>"+day+"."+month+"."+year;
-    }
-    try {
-        document.getElementById('curtime').innerHTML = date_time();
-    }
-    catch(e) {}
-
-function clockAppBackend(value)
-    {
-        if (value < 10)
-        {
-            value='0'+value;
-        }
-        return value;
-    }
-
-    /* функция получения текущей даты и времени */
-    function date_time()
-    {
-        var current_datetime = new Date();
-        var day = zero_first_format(current_datetime.getDate());
-        var month = zero_first_format(current_datetime.getMonth()+1);
-        var year = current_datetime.getFullYear();
-        var hours = zero_first_format(current_datetime.getHours());
-        var minutes = zero_first_format(current_datetime.getMinutes());
-        var seconds = zero_first_format(current_datetime.getSeconds());
-
-        return "<h4><b>"+day+"."+month+"."+year+"</b></h4>"+"<hr><h1 style='color: gray;'><b>"+hours+":"+minutes+":"+seconds+"</h1></b>";
-    }
-    try {
-        document.getElementById('curtime').innerHTML = date_time();
-    }
-    catch(e) {}
-
-function clockApp() {
-    icon = '<i class="fa fa-clock-o" aria-hidden="true"></i>'
-    appcontents = '<h3 id="curtime"></h3>';
-    openWindow('Clock App', appcontents, icon)
-    setInterval(function () {
-        try {
-            document.getElementById('curtime').innerHTML = date_time();
-        }
-        catch(e) {}
-    }, 1000);
-}
-function randhumanApp() {
-    icon = '<i class="fa fa-user-times" aria-hidden="true"></i>'
-    appcontents = '<img id="photo" src="https://thispersondoesnotexist.com/image" width="100%" height="300px">';
-    openWindow('Robots', appcontents, icon)
-}
-function consoleApp() {
-    icon = '<i class="fa fa-terminal" aria-hidden="true"></i>'
-    appcontents = '<div id="logplace" class="consoleblock"></div>' + '<input placeholder="Command" id="cmdinput" class="consoleinput"></input>' + 
-                  '<button onclick="executeCommand()" type="submit" id="cmdbutton" style="margin-left: 5px;" class="button"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>';
-    openWindow('Console', appcontents, icon)
-}
-function executeCommand() {
-    command = document.getElementById('cmdinput').value
-    try {
-        window.eval(command)
-        document.getElementById('logplace').innerHTML = "<b>Success executed:</b><br>" + command
-    }
-    catch(e) {
-        document.getElementById('logplace').innerHTML = "<b>Execute error:</b><br>" + e
-    }
-    document.getElementById('cmdinput').value = "";
-}
-function loggerApp() {
-    icon = '<i class="fa fa-times-circle" aria-hidden="true"></i>'
-    appcontents = '<div id="logadd"></div>';
-    openWindow('Logger', appcontents, icon, '300px', '300px')
-}
-function addlog(logtext) {
-    try {
-        document.getElementById('logadd').innerHTML += "<b>[LOG]</b> " + logtext + '<br>'
-        document.getElementById('logadd').lastChild.scrollIntoView(false)
-    }
-    catch(e) {}
-}
-function aboutApp() {
-    icon = '<i class="fa fa-cubes" aria-hidden="true"></i>'
-    appcontents = '<h1>nikitOS 0.2</h1><h4><hr>For questions: @nikit0s4 (VK)</b><br>It is written on JavaScript.<br>Worked on FreezeCore GUI</h4><h5><hr>Designed by <b>Nikoscocos Ltd.</b><br>All rights reversed.</h5>';
-    openWindow('About nikitOS', appcontents, icon, '350px', 'auto')
-}
-function minecraftApp() {
-    icon = '<img src="icons/minecraft.ico" width="32" height="32">'
-    appcontents = '<iframe src="https://classic.minecraft.net/" width="100%" height="100%"></iframe>';
-    openCustomWindow('Minecraft', appcontents, icon)
-}
-function vscodeApp() {
-    icon = '<img src="icons/vscode.png" width="32" height="32">'
-    appcontents = '<iframe src="https://vscode.dev/"></iframe>';
-    openCustomWindow('Visual Studio Code', appcontents, icon)
-}
-function musicApp() {
-    icon = '<img src="icons/music.png" width="32" height="32">'
-    appcontents = '<iframe src="https://europaplus.ru/" width="100%" height="100%"></iframe>';
-    openCustomWindow('Music', appcontents, icon)
-}
-function connectionApp() {
-    icon = '<img src="icons/connection.png" width="32" height="32">'
-    appcontents = '<iframe src="https://js13kgames.com/games/connection/index.html" width="100%" height="100%"></iframe>';
-    openCustomWindow('Conte', appcontents, icon)
-}
-function pyshellApp() {
-    icon = '<img src="icons/pyshell.png" width="32" height="32">'
-    appcontents = '<iframe src="https://console.python.org/python-dot-org-console/console_frame/" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>';
-    openCustomWindow('PyShell', appcontents, icon, '498px', '320px')
-}
-function rungameApp() {
-    icon = '<img src="icons/terraria.jpg" width="32" height="32">'
-    appcontents = '<iframe src="https://g.igroutka.ru/games/6/subway_surfers_amsterdam/e8xyldood1thn8uju6l6ysrryotjrnuz/"></iframe>';
-    openCustomWindow('Subway Surfers', appcontents, icon)
-}
-function fnaf3App() {
-    icon = '<img src="icons/terraria.jpg" width="32" height="32">'
-    appcontents = '<iframe width="calc(100% + 400px) id="iframe-in-game" class="direct-field" src="https://www.gameflare.com/embed/five-nights-at-freddys/" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" data-iframe-src="https://www.gameflare.com/embed/five-nights-at-freddys/" allow="autoplay; fullscreen" allowfullscreen></iframe>';
-    openCustomWindow('Subway Surfers', appcontents, icon)
-}
-function photoshopApp(){
-    icon='<img src="icons/photo.jpg" width="32" height="32">'
-    appcontents= '<iframe src="https://photopea.com/?p={%22environment%22:{%22fcolor%22:%220xFFFFFF%22,%22bcolor%22:%220x000000%22,%22theme%22:2,%22lang%22:%22ru%22,%22showbranding%22:false,%22showmenus%22:[[0,1,2,5,6,7],1,1,1,1,1,1,1,1]}}"></iframe>';
-    openCustomWindow('Photoshop',appcontents,icon)
-}
