@@ -13,6 +13,23 @@ const windowslocations = []
 const applist = []
 const brapplist = []
 
+function setVar(name, value) {
+    var http = createRequestObject();
+    if( http )
+    {
+        http.open('get', '/setvar/?varname=' + name + '&value=' + value);
+        http.onreadystatechange = function ()
+        {
+            if(http.readyState == 4) {}
+        }
+        http.send(null);
+    }
+    else
+    {
+        document.location = link;
+    }
+}
+
 function startNormal(appid, apptitle, appicon) {
     if (activestart == 1) {
         startMenu()
