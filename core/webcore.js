@@ -14,6 +14,9 @@ const applist = []
 const brapplist = []
 
 function startNormal(appid, apptitle, appicon) {
+    if (activestart == 1) {
+        startMenu()
+    }
     var http = createRequestObject();
     if( http )
     {
@@ -22,9 +25,6 @@ function startNormal(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
-                if (activestart == 1) {
-                    startMenu()
-                }
                 if (appicon.startsWith('fa')) {
                     appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
                 }
@@ -42,6 +42,9 @@ function startNormal(appid, apptitle, appicon) {
     }
 }
 function startCustom(appid, apptitle, appicon) {
+    if (activestart == 1) {
+        startMenu()
+    }
     var http = createRequestObject();
     if( http )
     {
@@ -50,9 +53,6 @@ function startCustom(appid, apptitle, appicon) {
         {
             if(http.readyState == 4)
             {
-                if (activestart == 1) {
-                    startMenu()
-                }
                 if (appicon.startsWith('fa')) {
                     appicon = '<i class="' + appicon + '" aria-hidden="true"></i>'
                 }
