@@ -307,3 +307,8 @@ button::-moz-focus-inner {
     opacity:1;
     }
     }
+textarea:active,
+textarea:focus {
+    border: none;
+}
+    
