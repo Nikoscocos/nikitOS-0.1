@@ -15,7 +15,13 @@ function command(command) {
         http.onreadystatechange = function ()
         {
             if(http.readyState == 4) {
-                addcontent(http.responseText, command)
+                if ((http.responseText).startsWith('js[trm:]') {
+                    eval((http.responseText).split('[trm:]')[1])
+                    addcontent('', command)
+                }
+                else {
+                    addcontent(http.responseText, command)   
+                }
             }
         }
         http.send(null);
@@ -31,6 +37,7 @@ function addcontent(content, value) {
     document.getElementById('text').innerHTML += content + '<br>'
     document.getElementById('input').value = ''
     document.getElementById('textinput').style.display = 'block'
+    document.body.scrollTop = document.body.scrollHeight;
 }
 function createRequestObject()
 {
