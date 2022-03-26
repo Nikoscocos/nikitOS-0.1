@@ -8,32 +8,38 @@ window.onload = function () {
     });
 };
 function command(command) {
-    var http = createRequestObject();
-    if( http )
-    {
-        http.open('get', '/action/terminal?value=' + command);
-        http.onreadystatechange = function ()
+    if (command != '') {
+        var http = createRequestObject();
+        if( http )
         {
-            if(http.readyState == 4) {
-                document.getElementById('input').value = ''
-                if ((http.responseText).startsWith('js[trm:]')) {
-                    scrloadq = (http.responseText).split('[trm:]')[1]
-                    try { eval(scrloadq) }
-                    catch {}
-                    if (scrloadq!='clear()') {
-                        document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'   
+            http.open('get', '/action/terminal?value=' + command);
+            http.onreadystatechange = function ()
+            {
+                if(http.readyState == 4) {
+                    document.getElementById('input').value = ''
+                    if ((http.responseText).startsWith('js[trm:]')) {
+                        scrloadq = (http.responseText).split('[trm:]')[1]
+                        try { eval(scrloadq) }
+                        catch {}
+                        if (scrloadq!='clear()') {
+                            document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'   
+                        }
+                        document.getElementById('textinput').style.display = 'block'
                     }
-                    document.getElementById('textinput').style.display = 'block'
-                    document.body.scrollTop = document.body.scrollHeight;
-                }
-                else {
-                    addcontent(http.responseText, command)   
+                    else {
+                        addcontent(http.responseText, command)
+                    }
                 }
             }
+            http.send(null);
         }
-        http.send(null);
+        else {}   
     }
-    else {}
+    else {
+        document.getElementById('input').value = ''
+        document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'
+        document.getElementById('textinput').style.display = 'block'
+    }
 }
 function clear() {
     document.getElementById('text').innerHTML = ''
