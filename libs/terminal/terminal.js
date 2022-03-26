@@ -18,10 +18,8 @@ function command(command) {
                 document.getElementById('input').value = ''
                 if ((http.responseText).startsWith('js[trm:]')) {
                     eval((http.responseText).split('[trm:]')[1])
-                    if (command == 'clear') {}
-                    else {
-                        addcontent('', command)
-                    }
+                    document.getElementById('textinput').style.display = 'block'
+                    document.body.scrollTop = document.body.scrollHeight;
                 }
                 else {
                     addcontent(http.responseText, command)   
