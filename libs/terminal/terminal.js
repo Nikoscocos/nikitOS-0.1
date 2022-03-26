@@ -18,7 +18,8 @@ function command(command) {
                 document.getElementById('input').value = ''
                 if ((http.responseText).startsWith('js[trm:]')) {
                     scrloadq = (http.responseText).split('[trm:]')[1]
-                    eval(scrloadq)
+                    try { eval(scrloadq) }
+                    catch {}
                     if (scrloadq!='clear()') {
                         document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'   
                     }
