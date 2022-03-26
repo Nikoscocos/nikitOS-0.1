@@ -37,7 +37,7 @@ function clear() {
 }
 function addcontent(content, value) {
     document.getElementById('textinput').style.display = 'none'
-    document.getElementById('text').innerHTML += '$ ' + value + '<br>'
+    document.getElementById('text').innerHTML += 'user@server:~$ ' + value + '<br>'
     if (content.endsWith('<br>')) {
         document.getElementById('text').innerHTML += content    
     }
