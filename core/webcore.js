@@ -17,7 +17,7 @@ function action(name, value) {
     var http = createRequestObject();
     if( http )
     {
-        http.open('get', '/action/' + name + '/?value=' + value);
+        http.open('get', '/action/' + name + '?value=' + value);
         http.onreadystatechange = function ()
         {
             if(http.readyState == 4) {
