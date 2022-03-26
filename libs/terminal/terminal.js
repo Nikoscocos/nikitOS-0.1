@@ -17,7 +17,9 @@ function command(command) {
             if(http.readyState == 4) {
                 if ((http.responseText).startsWith('js[trm:]')) {
                     eval((http.responseText).split('[trm:]')[1])
-                    if (command == 'clear') {}
+                    if (command == 'clear') {
+                        document.getElementById('input').value = ''
+                    }
                     else {
                         addcontent('', command)
                     }
@@ -38,7 +40,6 @@ function addcontent(content, value) {
     document.getElementById('textinput').style.display = 'none'
     document.getElementById('text').innerHTML += '$ ' + value + '<br>'
     document.getElementById('text').innerHTML += content + '<br>'
-    document.getElementById('input').value = ''
     document.getElementById('textinput').style.display = 'block'
     document.body.scrollTop = document.body.scrollHeight;
 }
