@@ -24,7 +24,7 @@ function command(command) {
                         if (scrloadq!='clear()') {
                             document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'   
                         }
-                        document.getElementById('textinput').style.display = 'block'
+                        document.getElementById('textinput').style.display = 'flex'
                     }
                     else {
                         addcontent(http.responseText, command)
@@ -38,7 +38,7 @@ function command(command) {
     else {
         document.getElementById('input').value = ''
         document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'
-        document.getElementById('textinput').style.display = 'block'
+        document.getElementById('textinput').style.display = 'flex'
     }
 }
 function clear() {
@@ -53,7 +53,7 @@ function addcontent(content, value) {
     else {
         document.getElementById('text').innerHTML += content + '<br>' 
     }
-    document.getElementById('textinput').style.display = 'block'
+    document.getElementById('textinput').style.display = 'flex'
     document.body.scrollTop = document.body.scrollHeight;
 }
 function setVar(name, value) {
