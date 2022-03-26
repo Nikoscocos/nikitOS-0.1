@@ -15,7 +15,7 @@ function command(command) {
         http.onreadystatechange = function ()
         {
             if(http.readyState == 4) {
-                if ((http.responseText).startsWith('js[trm:]') {
+                if ((http.responseText).startsWith('js[trm:]')) {
                     eval((http.responseText).split('[trm:]')[1])
                     addcontent('', command)
                 }
