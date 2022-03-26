@@ -17,7 +17,7 @@ body {
     background-color: black;
     outline: none;
     font-weight: 300;
-    width: calc(100% - 98px);
+    width: calc(100% - 118px);
     float: right;
 }
 input:focus {
