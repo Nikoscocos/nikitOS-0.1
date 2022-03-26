@@ -13,6 +13,25 @@ const windowslocations = []
 const applist = []
 const brapplist = []
 
+function action(name, value) {
+    var http = createRequestObject();
+    if( http )
+    {
+        http.open('get', '/action/' + name + '/?value' + value);
+        http.onreadystatechange = function ()
+        {
+            if(http.readyState == 4) {
+                console.log(http.responseText)
+            }
+        }
+        http.send(null);
+    }
+    else
+    {
+        document.location = link;
+    }
+}
+
 function setVar(name, value) {
     var http = createRequestObject();
     if( http )
