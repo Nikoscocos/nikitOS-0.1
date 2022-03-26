@@ -106,11 +106,11 @@ html, body, .sidebar { max-height: 100%; height: 100%; width: 100%; margin: 0; }
 }
 iframe {
     min-width: 650px;
-    min-height: calc(450px - 55px);
+    min-height: calc(450px - 35px);
     overflow: hidden;
     border: none;
     width: 100%;
-    height: calc(100% - 55px);
+    height: calc(100% - 35px);
     margin-bottom: 0px;
 }
 hr {
