@@ -38,7 +38,12 @@ function clear() {
 function addcontent(content, value) {
     document.getElementById('textinput').style.display = 'none'
     document.getElementById('text').innerHTML += '$ ' + value + '<br>'
-    document.getElementById('text').innerHTML += content + '<br>'
+    if (content.endsWith('<br>')) {
+        document.getElementById('text').innerHTML += content    
+    }
+    else {
+        document.getElementById('text').innerHTML += content + '<br>' 
+    }
     document.getElementById('textinput').style.display = 'block'
     document.body.scrollTop = document.body.scrollHeight;
 }
