@@ -17,8 +17,11 @@ function command(command) {
             if(http.readyState == 4) {
                 document.getElementById('input').value = ''
                 if ((http.responseText).startsWith('js[trm:]')) {
-                    eval((http.responseText).split('[trm:]')[1])
-                    document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'
+                    scrloadq = (http.responseText).split('[trm:]')[1]
+                    eval(scrloadq)
+                    if (scrloadq!='clear()') {
+                        document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'   
+                    }
                     document.getElementById('textinput').style.display = 'block'
                     document.body.scrollTop = document.body.scrollHeight;
                 }
