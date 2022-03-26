@@ -9,7 +9,7 @@ window.onload = function () {
 };
 function bottom() {
     if (window.innerHeight <= document.body.scrollHeight) {
-        element = document.getElementById('input').scrollIntoView();
+        window.scrollTo(pageXOffset, document.body.scrollHeight);
     }
     else {}
 }
