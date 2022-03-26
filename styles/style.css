@@ -110,7 +110,7 @@ iframe {
     overflow: hidden;
     border: none;
     width: 100%;
-    height: calc(100% - 35px);
+    height: calc(100% - 55px);
     margin-bottom: 0px;
 }
 hr {
