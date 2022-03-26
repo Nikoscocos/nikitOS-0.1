@@ -17,7 +17,10 @@ function command(command) {
             if(http.readyState == 4) {
                 if ((http.responseText).startsWith('js[trm:]')) {
                     eval((http.responseText).split('[trm:]')[1])
-                    addcontent('', command)
+                    if (command == 'clear') {}
+                    else {
+                        addcontent('', command)
+                    }
                 }
                 else {
                     addcontent(http.responseText, command)   
