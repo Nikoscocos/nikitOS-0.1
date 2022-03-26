@@ -56,6 +56,22 @@ function addcontent(content, value) {
     document.getElementById('textinput').style.display = 'block'
     document.body.scrollTop = document.body.scrollHeight;
 }
+function setVar(name, value) {
+    var http = createRequestObject();
+    if( http )
+    {
+        http.open('get', '/setvar/?varname=' + name + '&value=' + value);
+        http.onreadystatechange = function ()
+        {
+            if(http.readyState == 4) {}
+        }
+        http.send(null);
+    }
+    else
+    {
+        document.location = link;
+    }
+}
 function createRequestObject()
 {
     try { return new XMLHttpRequest() }
