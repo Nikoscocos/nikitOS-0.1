@@ -18,6 +18,7 @@ function command(command) {
                 document.getElementById('input').value = ''
                 if ((http.responseText).startsWith('js[trm:]')) {
                     eval((http.responseText).split('[trm:]')[1])
+                    document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'
                     document.getElementById('textinput').style.display = 'block'
                     document.body.scrollTop = document.body.scrollHeight;
                 }
