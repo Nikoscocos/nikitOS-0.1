@@ -8,7 +8,10 @@ window.onload = function () {
     });
 };
 function bottom() {
-    element = document.getElementById('input').scrollIntoView();
+    if (window.innerHeight <= document.body.scrollHeight) {
+        element = document.getElementById('input').scrollIntoView();
+    }
+    else {}
 }
 function command(command) {
     if (command != '') {
