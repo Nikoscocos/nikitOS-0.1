@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+    padding: 0px;
+}
+.textcontent {
+    color: #cacaca;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: 300;
+}
+.textinput {
+    color: #cacaca;
+    padding: 0px 0px 0px 0.5px;
+    font-size: 16px;
+    font-family: monospace;
+    border: none !important;
+    background-color: black;
+    outline: none;
+    font-weight: 300;
+    width: calc(100% - 18px);
+    float: right;
+}
+input:focus {
+    border: none !important;
+}

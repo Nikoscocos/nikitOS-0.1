@@ -1,0 +1,47 @@
+window.onload = function () {
+    var input = document.getElementById("input");
+    input.addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            command(input.value)
+        }
+    });
+};
+function command(command) {
+    var http = createRequestObject();
+    if( http )
+    {
+        http.open('get', '/action/terminal?value=' + command);
+        http.onreadystatechange = function ()
+        {
+            if(http.readyState == 4) {
+                addcontent(http.responseText, command)
+            }
+        }
+        http.send(null);
+    }
+    else {}
+}
+function clear() {
+    document.getElementById('text').innerHTML = ''
+}
+function addcontent(content, value) {
+    document.getElementById('textinput').style.display = 'none'
+    document.getElementById('text').innerHTML += '$ ' + value + '<br>'
+    document.getElementById('text').innerHTML += content + '<br>'
+    document.getElementById('input').value = ''
+    document.getElementById('textinput').style.display = 'block'
+}
+function createRequestObject()
+{
+    try { return new XMLHttpRequest() }
+    catch(e)
+    {
+        try { return new ActiveXObject('Msxml2.XMLHTTP') }
+        catch(e)
+        {
+            try { return new ActiveXObject('Microsoft.XMLHTTP') }
+            catch(e) { return null; }
+        }
+    }
+}
