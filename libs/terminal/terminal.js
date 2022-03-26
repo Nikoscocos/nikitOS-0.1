@@ -7,6 +7,9 @@ window.onload = function () {
         }
     });
 };
+function bottom() {
+    element = document.getElementById('input').scrollIntoView();
+}
 function command(command) {
     if (command != '') {
         var http = createRequestObject();
@@ -25,6 +28,7 @@ function command(command) {
                             document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'   
                         }
                         document.getElementById('textinput').style.display = 'flex'
+                        bottom()
                     }
                     else {
                         addcontent(http.responseText, command)
@@ -39,6 +43,7 @@ function command(command) {
         document.getElementById('input').value = ''
         document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'
         document.getElementById('textinput').style.display = 'flex'
+        bottom()
     }
 }
 function clear() {
@@ -54,7 +59,7 @@ function addcontent(content, value) {
         document.getElementById('text').innerHTML += content + '<br>' 
     }
     document.getElementById('textinput').style.display = 'flex'
-    document.body.scrollTop = document.body.scrollHeight;
+    bottom()
 }
 function setVar(name, value) {
     var http = createRequestObject();
