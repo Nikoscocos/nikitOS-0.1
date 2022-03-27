@@ -54,7 +54,7 @@ function clear() {
 }
 function addcontent(content, value) {
     document.getElementById('textinput').style.display = 'none'
-    document.getElementById('text').innerHTML += document.getElementById('srvtxt').innerHTML + ' ' + command + '<br>'
+    document.getElementById('text').innerHTML += document.getElementById('srvtxt').innerHTML + ' ' + value + '<br>'
     if (content.endsWith('<br>')) {
         document.getElementById('text').innerHTML += content    
     }
