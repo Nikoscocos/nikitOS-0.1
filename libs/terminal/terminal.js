@@ -28,7 +28,7 @@ function command(command) {
                         try { eval(scrloadq) }
                         catch {}
                         if (scrloadq!='clear()') {
-                            document.getElementById('text').innerHTML += document.getElementById('srvtext').innerHTML + ' ' + command + '<br>'   
+                            document.getElementById('text').innerHTML += document.getElementById('srvtxt').innerHTML + ' ' + command + '<br>'   
                         }
                         document.getElementById('textinput').style.display = 'flex'
                         bottom()
@@ -44,7 +44,7 @@ function command(command) {
     }
     else {
         document.getElementById('input').value = ''
-        document.getElementById('text').innerHTML += document.getElementById('srvtext').innerHTML + ' ' + command + '<br>'
+        document.getElementById('text').innerHTML += document.getElementById('srvtxt').innerHTML + ' ' + command + '<br>'
         document.getElementById('textinput').style.display = 'flex'
         bottom()
     }
@@ -54,7 +54,7 @@ function clear() {
 }
 function addcontent(content, value) {
     document.getElementById('textinput').style.display = 'none'
-    document.getElementById('text').innerHTML += document.getElementById('srvtext').innerHTML + ' ' + command + '<br>'
+    document.getElementById('text').innerHTML += document.getElementById('srvtxt').innerHTML + ' ' + command + '<br>'
     if (content.endsWith('<br>')) {
         document.getElementById('text').innerHTML += content    
     }
