@@ -28,7 +28,7 @@ function command(command) {
                         try { eval(scrloadq) }
                         catch {}
                         if (scrloadq!='clear()') {
-                            document.getElementById('text').innerHTML += 'user@server:~$ ' + command + '<br>'   
+                            document.getElementById('text').innerHTML += document.getElementById('srvtext').innerHTML + ' ' + command + '<br>'   
                         }
                         document.getElementById('textinput').style.display = 'flex'
                         bottom()
