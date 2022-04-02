@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <title>Два разных текста на одной строке</title>
+  <style>
+   .leftstr, .rightstr {
+    float: left; /* Обтекание справа */ 
+    width: 50%; /* Ширина текстового блока */ 
+   }
+   .rightstr {
+    text-align: right; /* Выравнивание по правому краю */ 
+   }
+   .closebtn {
+       height: 20px;
+       width: 20px;
+       background-color: rgb(243, 52, 26);
+       border-radius: 20px;
+   }
+   .maxbtn {
+       height: 20px;
+       width: 20px;
+       background-color: rgb(236, 92, 9);
+       border-radius: 20px;
+   }
+   .minbtn {
+       height: 20px;
+       width: 20px;
+       background-color: rgb(113, 177, 53);
+       border-radius: 20px;
+   }
+  </style>
+ </head>
+ <body>
+  <p class="leftstr">Строка один</p>
+  <p class="rightstr"><div class="minbtn"></div> <div class="maxbtn"></div> <div class="closebtn"></div></p>
+  <div style="clear: left"></div>
+ </body>
+</html>
