@@ -1,0 +1,44 @@
+html {
+    height: 100%;
+    margin: auto;
+}
+body {
+    height: 100%;
+}
+.block {
+    padding: 15px;
+    display: inline-block;
+    border-right: 1px solid rgb(212, 211, 211);
+    height: calc(100% - 32px);
+    background-color: white;
+    margin: auto;
+}
+.section {
+    padding: 15px 12px 5px 12px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+}
+.tosection {
+    padding: 0px;
+}
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.section h4 {
+    line-height: 20px;
+}
+.twoblock {
+    padding: 15px;
+    float:left;
+    border-right: 1px solid rgb(212, 211, 211);
+    height: calc(100% - 32px);
+    background-color: white;
+}
+.nav {
+    top: 0;
+    position: sticky;
+    border-bottom: 1px solid rgb(212, 211, 211);
+    padding: 4px 8px 0px 8px;
+    background-color: white;
+}
