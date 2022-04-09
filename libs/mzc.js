@@ -79,7 +79,7 @@ function showPage(pageid) {
             if(http.readyState == 4)
             {
                 document.getElementById('cont').innerHTML = http.responseText
-                history.pushState({page: 1}, 'Loading...', link);
+                history.pushState({page: 1}, 'Loading...', pageid);
             }
         }
         http.send(null);
