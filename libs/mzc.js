@@ -1,3 +1,8 @@
+window.addEventListener("popstate", function (event){
+    if (event.state) {
+        var link = window.location
+        showPPage(link) 
+    }});
 function rewind() {
     audioint = aid.replace('audio', '')
     name = queue[parseInt(audioint)]['name']
@@ -65,6 +70,26 @@ function searchMusic(queq) {
     }
 }
 function showPage(pageid) {
+    var http = createRequestObject();
+    if( http )
+    {
+        http.open('get', '/dyn' + pageid);
+        http.onreadystatechange = function ()
+        {
+            if(http.readyState == 4)
+            {
+                document.getElementById('cont').innerHTML = http.responseText
+                history.pushState({page: 1}, 'Loading...', link);
+            }
+        }
+        http.send(null);
+    }
+    else
+    {
+        document.location = url;
+    }
+}
+function showPPage(pageid) {
     var http = createRequestObject();
     if( http )
     {
