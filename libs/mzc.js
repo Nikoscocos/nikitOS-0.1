@@ -1,6 +1,6 @@
 window.addEventListener("popstate", function (event){
     if (event.state) {
-        var link = window.location
+        var link = window.location.split('pythonanywhere.com/')[1]
         showPPage(link) 
     }});
 function rewind() {
